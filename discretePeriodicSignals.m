@@ -16,7 +16,7 @@ clf
 stem(n, x, 'Color',[.70 .51 .201])
 axis([0 b -2 2]);
 grid;
-title('sinusoid')
+title('Sinusoid Plot')
 xlabel('Time index n')
 ylabel('Amplitude')
 axis
