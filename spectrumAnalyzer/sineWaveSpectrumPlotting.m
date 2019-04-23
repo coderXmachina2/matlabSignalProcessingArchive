@@ -3,7 +3,7 @@ clear
 %Signal 1 params:
 universalSampler = 44100;
 A = 3;
-f = 500;
+f = 1000;
 phi = pi/4;
 fs = universalSampler; 
 L = 1;
@@ -23,8 +23,9 @@ L2 = 1;
 
 sum = signal1 + signal2
 
-[sdB1 f1] = PlotSpectrum(signal1, 44100);
-[sdB2 f2] = PlotSpectrum(signal2, 44100);
+[sdB1 f1] = PlotSpectrum(signal1, universalSampler);
+[sdB2 f2] = PlotSpectrum(signal2, universalSampler);
+[sumSpectra f3] = PlotSpectrum(sum, universalSampler);
 
 %Combined sine wave
 figure(1)
@@ -47,7 +48,7 @@ grid
 axis tight
 xlabel('frequency (Hz)')
 ylabel('amplitude (dB)')
-title('spectrum Signal Wave ')
+title('spectrum 1 Signal Wave ')
 
 figure (4)
 plot(f2,sdB2,'linewidth', 1)
@@ -59,11 +60,19 @@ title('spectrum Signal Wave ')
 
 %together plot
 figure (5)
-plot(f2,sdB1,'linewidth', .5)
+plot(f2,sdB1,'linewidth', 1)
 hold on
-plot(f1,sdB2,'linewidth', .8)
+plot(f1,sdB2,'linewidth', 1)
 grid
 axis tight
 xlabel('frequency (Hz)')
 ylabel('amplitude (dB)')
 title('plot spectrum together')
+
+figure (6)
+plot(f3,sumSpectra,'linewidth', 1)
+grid
+axis tight
+xlabel('frequency (Hz)')
+ylabel('amplitude (dB)')
+title('plot sumSpectra')
