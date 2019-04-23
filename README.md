@@ -2,8 +2,8 @@
 An Archive of DSP code, techniques and applications.
 
 Based on a combination of Mitralab and AUT Digital Signal Processing ENSE 8097 Course.
-\nCredits to Dr. Anthony Griffin of AUT
+<br/>Credits to Dr. Anthony Griffin of AUT
 
 contents
 
-Unit step and unit sample with delays\nSpectrum analyzer
+Unit step and unit sample with delays<br/>Spectrum analyzer
