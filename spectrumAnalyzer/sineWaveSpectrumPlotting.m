@@ -26,7 +26,7 @@ sum = signal1 + signal2
 [sdB1 f1] = PlotSpectrum(signal1, 44100);
 [sdB2 f2] = PlotSpectrum(signal2, 44100);
 
-%plot sine wave
+%Combined sine wave
 figure(1)
 plot(tIndex1, signal1)
 
@@ -40,6 +40,7 @@ ylabel('Amplitude')
 title('Sine Wave')
 
 %plot their spectra
+%individual plot
 figure (3)
 plot(f1,sdB1,'linewidth', 1)
 grid
@@ -56,21 +57,13 @@ xlabel('frequency (Hz)')
 ylabel('amplitude (dB)')
 title('spectrum Signal Wave ')
 
-%{
-period = round(fs/f);
-pow = (1/period)*sum(abs(signal(1:period)).^2); 
- 
-N = length(signal) + 1;  % to be even :) 
-
-S = fft(signal,N); 
-SdB = 20*log10(S);  % or SdB = mag2db(S); 
-freqs = (0:(N/2)-1)*fs/N;
-
-%}
-
-%plot spectrum
-%figure(2)
-%plot(freqs, SdB(1:N/2)) 
-%xlabel('frequency')
-%ylabel('amplitude')
-%title('spectrum')
+%together plot
+figure (5)
+plot(f2,sdB1,'linewidth', .5)
+hold on
+plot(f1,sdB2,'linewidth', .8)
+grid
+axis tight
+xlabel('frequency (Hz)')
+ylabel('amplitude (dB)')
+title('plot spectrum together')
